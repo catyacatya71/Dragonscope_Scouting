@@ -15,6 +15,36 @@
   <option value="2026cthar">2026 Hartford</option>
 </select>
 
+<script>
+  let teamsData = {};
+
+  fetch('teams.json')
+    .then(res => res.json())
+    .then(data => {
+      teamsData = data;
+    })
+    .catch(err => console.error('Could not load teams.json:', err));
+
+  document.getElementById('event').addEventListener('change', function () {
+    const eventKey = this.value;
+    const teamSelect = document.getElementById('team');
+
+    teamSelect.innerHTML = '<option value="">Select a team...</option>';
+
+    if (eventKey && teamsData[eventKey]) {
+      teamsData[eventKey].forEach(team => {
+        const option = document.createElement('option');
+        option.value = team.number;
+        option.textContent = `${team.number} – ${team.name}`;
+        teamSelect.appendChild(option);
+      });
+      teamSelect.disabled = false;
+    } else {
+      teamSelect.innerHTML = '<option value="">Select an event first...</option>';
+      teamSelect.disabled = true;
+    }
+  });
+</script>
   
 
 <body class="dark-body">
@@ -71,4 +101,5 @@
 
 </body>
 </html>
+
 
