@@ -206,6 +206,17 @@
         <option value="right">Right</option>
       </select>
 
+      <label class="form-label">Fuel scored during autonomous</label>
+       <select class="form-input">
+        <option value="">Select an value...</option>
+        <option value="yes">0-5</option>
+        <option value="no">6-10</option>
+          <option value="yes">11-15</option>
+        <option value="no">16-20</option>
+          <option value="yes">21-25</option>
+        <option value="no">26-30</option>
+      </select>
+
       <label class="form-label">Did they climb during auto?</label>
       <select class="form-input">
         <option value="">Select an option...</option>
@@ -213,20 +224,95 @@
         <option value="no">No</option>
       </select>
 
-      <label class="form-label">Fuel scored during autonomous</label>
-      <input type="range" min="0" max="50" step="10" list="tickmarks"
-         style="width: 100%;">
-      <datalist id="tickmarks">
-      <option value="0" label="0"></option>
-      <option value="10" label="10"></option>
-      <option value="20" label="20"></option>
-      <option value="30" label="30"></option>
-      <option value="40" label="40"></option>
-      <option value="50" label="50"></option>
-      </datalist>
-      </div>
+      <hr class="section divider">
+
+      <label class="form-label">Fuel scored during teleop</label>
+       <select class="form-input">
+        <option value="">Select an value...</option>
+        <option value="yes">0-10</option>
+        <option value="no">11-20</option>
+        <option value="yes">21-30</option>
+        <option value="no">31-40</option>
+        <option value="yes">41-50</option>
+        <option value="no">51-60</option>
+        <option value="no">61-70</option>
+        <option value="no">71-80</option>
+        <option value="no">81-90</option>
+        <option value="no">91-100</option>
+        <option value="no">100+</option>
+      </select>
+
+    <label class="form-label">Do they pass fuel?</label>
+      <select class="form-input">
+        <option value="">Select an option...</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <hr class="section divider">
+
+      <label class="form-label">Did they climb?</label>
+       <select class="form-input">
+        <option value="">Select an option...</option>
+        <option value="yes">L1</option>
+        <option value="no">L2</option>
+        <option value="yes">L3</option>
+        <option value="no">Not attempted</option>
+        <option value="yes">Attempted but failed</option>
+      </select>
+
+      <label class="form-label">Did they continue shooting for endgame?</label>
+      <select class="form-input">
+        <option value="">Select an option...</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <hr class="section divider">
+
+      <label class="form-label">Were there any issues that affected their scoring?</label>
+      <input class="form-input" type="text" id="scouter_name" placeholder="If yes, please explain">
+
+      <label class="form-label">Did they spend a lot of times lining up?</label>
+      <select class="form-input">
+        <option value="">Select an option...</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label class="form-label">Did they contribute to a lot of fouls or penalties?</label>
+      <select class="form-input">
+        <option value="">Select an option...</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label class="form-label">How accurate was their shooting on a scale from 1 to 5?</label>
+       <select class="form-input">
+        <option value="">Select an option...</option>
+        <option value="yes">1</option>
+        <option value="no">2</option>
+        <option value="yes">3</option>
+        <option value="no">4</option>
+        <option value="yes">5</option>
+      </select>
+
+      <label class="form-label">How good was their defense on a scale from 1 to 5?</label>
+       <select class="form-input">
+        <option value="">Select an option...</option>
+        <option value="yes">1</option>
+        <option value="no">2</option>
+        <option value="yes">3</option>
+        <option value="no">4</option>
+        <option value="yes">5</option>
+      </select>
+
+      <label class="form-label">Match Notes</label>
+      <input class="form-input" type="text" id="scouter_name" placeholder="Anything you noticed about how they played">
+
+      <button type="submit">Submit</button>
       
- <script type="module">
+      <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
@@ -323,5 +409,6 @@
 
 </body>
 </html>
+
 
 
