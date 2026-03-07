@@ -1,169 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>1991 Pit Scouting</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>1991 Match Scouting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * { box-sizing: border-box; }
-    body { margin: 0; padding: 0; }
-    .site-header {
-      background: #ff8601;
-      color: black;
-      text-align: center;
-      padding: 20px;
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      width: 100%;
-    }
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      padding: 20px 16px;
-    }
-    .nav-buttons .button {
-      flex: 1;
-      max-width: 220px;
-      text-align: center;
-      font-size: 18px;
-      padding: 16px 12px;
-    }
-    .dark-card {
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 24px 20px;
-      max-width: 600px;
-      margin: 0 auto 40px auto;
-      width: calc(100% - 32px);
-    }
-    .form-title {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      max-width: 100%;
-      margin: 0;
-    }
-    .form-label {
-      display: block;
-      text-align: left;
-      font-weight: bold;
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-    .form-input {
-      width: 100%;
-      padding: 14px 12px;
-      border-radius: 10px;
-      border: none;
-      background: #2a2a2a;
-      color: white;
-      font-size: 16px;
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      background-size: 20px;
-    }
+    body { margin: 0; padding: 0; background: #121212; color: white; font-family: sans-serif; }
+    .site-header { background: #ff8601; color: black; text-align: center; padding: 20px; font-size: 26px; font-weight: bold; letter-spacing: 2px; width: 100%; }
+    .nav-buttons { display: flex; justify-content: center; gap: 16px; padding: 20px 16px; }
+    .nav-buttons .button { flex: 1; max-width: 220px; text-align: center; font-size: 18px; padding: 16px 12px; background: #ff8601; color: black; font-weight: bold; border-radius: 10px; text-decoration: none; display: inline-block; }
+    .dark-card { background: #1a1a1a; border-radius: 16px; padding: 24px 20px; max-width: 600px; margin: 0 auto 40px auto; width: calc(100% - 32px); }
+    .form-title { font-size: 26px; font-weight: bold; margin-bottom: 20px; text-align: center; }
+    form { display: flex; flex-direction: column; gap: 14px; max-width: 100%; margin: 0; }
+    .form-label { display: block; text-align: left; font-weight: bold; font-size: 16px; margin-bottom: 4px; }
+    .form-input { width: 100%; padding: 14px 12px; border-radius: 10px; border: none; background: #2a2a2a; color: white; font-size: 16px; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>"); background-repeat: no-repeat; background-position: right 14px center; background-size: 20px; }
     input.form-input { background-image: none; }
-    .form-textarea {
-      width: 100%;
-      padding: 14px 12px;
-      border-radius: 10px;
-      border: none;
-      background: #2a2a2a;
-      color: white;
-      font-size: 16px;
-      min-height: 120px;
-      resize: vertical;
-    }
-    .form-submit {
-      background: #ff8601;
-      color: black;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 16px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 8px;
-    }
-    .form-submit:disabled {
-      background: #888;
-      cursor: not-allowed;
-    }
-    .form-checkbox-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-align: left;
-      font-size: 16px;
-    }
-    .form-checkbox-row input[type="checkbox"] {
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-      accent-color: #ff8601;
-    }
-    .section-divider {
-      border: none;
-      border-top: 1px solid #333;
-      margin: 6px 0;
-    }
-    .section-header {
-      color: #ff8601;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: left;
-      margin: 4px 0 0 0;
-    }
-    .toast {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ff8601;
-      color: black;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      z-index: 999;
-    }
-    footer {
-      text-align: center;
-      color: #555;
-      font-size: 13px;
-      padding: 16px;
-    }
+    .form-textarea { width: 100%; padding: 14px 12px; border-radius: 10px; border: none; background: #2a2a2a; color: white; font-size: 16px; min-height: 120px; resize: vertical; }
+    .form-submit { background: #ff8601; color: black; font-size: 20px; font-weight: bold; padding: 16px; border-radius: 10px; border: none; cursor: pointer; width: 100%; margin-top: 8px; }
+    .form-submit:disabled { background: #888; cursor: not-allowed; }
+    .section-divider { border: none; border-top: 1px solid #333; margin: 6px 0; }
+    .section-header { color: #ff8601; font-size: 18px; font-weight: bold; text-align: left; margin: 4px 0 0 0; }
+    .counter-row { display: flex; align-items: center; justify-content: space-between; background: #2a2a2a; border-radius: 10px; padding: 10px 14px; }
+    .counter-label { font-size: 16px; font-weight: bold; }
+    .counter-controls { display: flex; align-items: center; gap: 14px; }
+    .counter-btn { background: #ff8601; color: black; border: none; border-radius: 8px; width: 38px; height: 38px; font-size: 22px; font-weight: bold; cursor: pointer; line-height: 1; display: flex; align-items: center; justify-content: center; }
+    .counter-btn.minus { background: #444; color: white; }
+    .counter-value { font-size: 22px; font-weight: bold; min-width: 28px; text-align: center; }
+    .toast { display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #ff8601; color: black; font-weight: bold; font-size: 16px; padding: 14px 28px; border-radius: 10px; z-index: 999; white-space: nowrap; }
+    footer { text-align: center; color: #555; font-size: 13px; padding: 16px; }
+    .alliance-row { display: flex; gap: 10px; }
+    .alliance-btn { flex: 1; padding: 14px; border-radius: 10px; border: 3px solid transparent; font-size: 16px; font-weight: bold; cursor: pointer; background: #2a2a2a; color: #888; transition: all 0.15s; }
+    .alliance-btn.red.active { background: #5a0000; color: #ff4444; border-color: #ff4444; }
+    .alliance-btn.blue.active { background: #00005a; color: #4488ff; border-color: #4488ff; }
   </style>
 </head>
-<body class="dark-body">
-
+<body>
   <div class="site-header">DRAGONSCOPE</div>
-
   <div class="nav-buttons">
     <a class="button" href="index.html">Home</a>
     <a class="button" href="pit.html">Pit Scouting</a>
   </div>
-
   <div class="dark-card">
     <h1 class="form-title">Match Scouting</h1>
-    <form id="pitForm">
+    <form id="matchForm">
 
+      <p class="section-header">Match Info</p>
       <hr class="section-divider">
 
-       <label class="form-label">Event</label>
+      <label class="form-label">Event</label>
       <select class="form-input" id="event">
         <option value="">Select an event...</option>
         <option value="2026mabil">2026 Minuteman</option>
@@ -173,18 +57,28 @@
         <option value="2026cthar">2026 Hartford</option>
       </select>
 
-      <label class="form-label">Team</label>
+      <label class="form-label">Team Being Scouted</label>
       <select class="form-input" id="team" disabled>
         <option value="">Select an event first...</option>
       </select>
-      
-      <label class="form-label">Is Their Robot Present?</label>
-<div class="form-checkbox-row">
-  <input type="checkbox" id="robot_present">
-  <span>Robot is present for this match</span>
-</div>
 
-      <hr class="section-divider">
+      <label class="form-label">Match Number</label>
+      <input class="form-input" type="number" id="match_number" placeholder="e.g. 12" min="1">
+
+      <label class="form-label">Alliance</label>
+      <div class="alliance-row">
+        <button type="button" class="alliance-btn red" id="btn_red" onclick="setAlliance('red')">🔴 Red</button>
+        <button type="button" class="alliance-btn blue" id="btn_blue" onclick="setAlliance('blue')">🔵 Blue</button>
+      </div>
+      <input type="hidden" id="alliance" value="">
+
+      <label class="form-label">Robot Position (1–3)</label>
+      <select class="form-input" id="robot_position">
+        <option value="">Select position...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
 
       <label class="form-label">Scouter Name</label>
       <input class="form-input" type="text" id="scouter_name" placeholder="Enter your name...">
@@ -195,126 +89,138 @@
         <option value="10063">10063</option>
         <option value="1071">1071</option>
       </select>
-      
+
+      <p class="section-header">Autonomous</p>
       <hr class="section-divider">
 
-       <label class="form-label">Where did they start?</label>
-      <select class="form-input">
-        <option value="">Select a option...</option>
+      <label class="form-label">Auto Starting Position</label>
+      <select class="form-input" id="auto_start">
+        <option value="">Select...</option>
         <option value="left">Left</option>
         <option value="center">Center</option>
         <option value="right">Right</option>
       </select>
 
-      <label class="form-label">Fuel scored during autonomous</label>
-       <select class="form-input">
-        <option value="">Select an value...</option>
-        <option value="yes">0-5</option>
-        <option value="no">6-10</option>
-          <option value="yes">11-15</option>
-        <option value="no">16-20</option>
-          <option value="yes">21-25</option>
-        <option value="no">26-30</option>
-      </select>
-
-      <label class="form-label">Did they climb during auto?</label>
-      <select class="form-input">
-        <option value="">Select an option...</option>
+      <label class="form-label">Did they move during auto?</label>
+      <select class="form-input" id="auto_moved">
+        <option value="">Select...</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
 
-     <hr class="section-divider">
+      <label class="form-label">Coral Scored in Auto</label>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="counter-row"><span class="counter-label">L1</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('auto_coral_l1')">−</button><span class="counter-value" id="auto_coral_l1_display">0</span><button type="button" class="counter-btn" onclick="increment('auto_coral_l1')">+</button></div></div>
+        <div class="counter-row"><span class="counter-label">L2</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('auto_coral_l2')">−</button><span class="counter-value" id="auto_coral_l2_display">0</span><button type="button" class="counter-btn" onclick="increment('auto_coral_l2')">+</button></div></div>
+        <div class="counter-row"><span class="counter-label">L3</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('auto_coral_l3')">−</button><span class="counter-value" id="auto_coral_l3_display">0</span><button type="button" class="counter-btn" onclick="increment('auto_coral_l3')">+</button></div></div>
+        <div class="counter-row"><span class="counter-label">L4</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('auto_coral_l4')">−</button><span class="counter-value" id="auto_coral_l4_display">0</span><button type="button" class="counter-btn" onclick="increment('auto_coral_l4')">+</button></div></div>
+      </div>
+      <input type="hidden" id="auto_coral_l1" value="0">
+      <input type="hidden" id="auto_coral_l2" value="0">
+      <input type="hidden" id="auto_coral_l3" value="0">
+      <input type="hidden" id="auto_coral_l4" value="0">
 
-      <label class="form-label">Fuel scored during teleop</label>
-       <select class="form-input">
-        <option value="">Select an value...</option>
-        <option value="yes">0-10</option>
-        <option value="no">11-20</option>
-        <option value="yes">21-30</option>
-        <option value="no">31-40</option>
-        <option value="yes">41-50</option>
-        <option value="no">51-60</option>
-        <option value="no">61-70</option>
-        <option value="no">71-80</option>
-        <option value="no">81-90</option>
-        <option value="no">91-100</option>
-        <option value="no">100+</option>
+      <label class="form-label">Algae Scored in Auto</label>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="counter-row"><span class="counter-label">Net</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('auto_algae_net')">−</button><span class="counter-value" id="auto_algae_net_display">0</span><button type="button" class="counter-btn" onclick="increment('auto_algae_net')">+</button></div></div>
+        <div class="counter-row"><span class="counter-label">Processor</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('auto_algae_processor')">−</button><span class="counter-value" id="auto_algae_processor_display">0</span><button type="button" class="counter-btn" onclick="increment('auto_algae_processor')">+</button></div></div>
+      </div>
+      <input type="hidden" id="auto_algae_net" value="0">
+      <input type="hidden" id="auto_algae_processor" value="0">
+
+      <p class="section-header">Teleop</p>
+      <hr class="section-divider">
+
+      <label class="form-label">Coral Scored in Teleop</label>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="counter-row"><span class="counter-label">L1</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('tele_coral_l1')">−</button><span class="counter-value" id="tele_coral_l1_display">0</span><button type="button" class="counter-btn" onclick="increment('tele_coral_l1')">+</button></div></div>
+        <div class="counter-row"><span class="counter-label">L2</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('tele_coral_l2')">−</button><span class="counter-value" id="tele_coral_l2_display">0</span><button type="button" class="counter-btn" onclick="increment('tele_coral_l2')">+</button></div></div>
+        <div class="counter-row"><span class="counter-label">L3</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('tele_coral_l3')">−</button><span class="counter-value" id="tele_coral_l3_display">0</span><button type="button" class="counter-btn" onclick="increment('tele_coral_l3')">+</button></div></div>
+        <div class="counter-row"><span class="counter-label">L4</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('tele_coral_l4')">−</button><span class="counter-value" id="tele_coral_l4_display">0</span><button type="button" class="counter-btn" onclick="increment('tele_coral_l4')">+</button></div></div>
+      </div>
+      <input type="hidden" id="tele_coral_l1" value="0">
+      <input type="hidden" id="tele_coral_l2" value="0">
+      <input type="hidden" id="tele_coral_l3" value="0">
+      <input type="hidden" id="tele_coral_l4" value="0">
+
+      <label class="form-label">Algae Scored in Teleop</label>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="counter-row"><span class="counter-label">Net</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('tele_algae_net')">−</button><span class="counter-value" id="tele_algae_net_display">0</span><button type="button" class="counter-btn" onclick="increment('tele_algae_net')">+</button></div></div>
+        <div class="counter-row"><span class="counter-label">Processor</span><div class="counter-controls"><button type="button" class="counter-btn minus" onclick="decrement('tele_algae_processor')">−</button><span class="counter-value" id="tele_algae_processor_display">0</span><button type="button" class="counter-btn" onclick="increment('tele_algae_processor')">+</button></div></div>
+      </div>
+      <input type="hidden" id="tele_algae_net" value="0">
+      <input type="hidden" id="tele_algae_processor" value="0">
+
+      <label class="form-label">Defense Played?</label>
+      <select class="form-input" id="defense">
+        <option value="">Select...</option>
+        <option value="none">No defense</option>
+        <option value="some">Some defense</option>
+        <option value="heavy">Heavy defense</option>
       </select>
 
-    <label class="form-label">Do they pass fuel?</label>
-      <select class="form-input">
-        <option value="">Select an option...</option>
+      <label class="form-label">Were They Defended Against?</label>
+      <select class="form-input" id="defended">
+        <option value="">Select...</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
 
-    <hr class="section-divider">
+      <p class="section-header">Endgame / Climb</p>
+      <hr class="section-divider">
 
-      <label class="form-label">Did they climb?</label>
-       <select class="form-input">
-        <option value="">Select an option...</option>
-        <option value="yes">L1</option>
-        <option value="no">L2</option>
-        <option value="yes">L3</option>
-        <option value="no">Not attempted</option>
-        <option value="yes">Attempted but failed</option>
+      <label class="form-label">Climb Result</label>
+      <select class="form-input" id="climb_result">
+        <option value="">Select...</option>
+        <option value="none">Did not attempt</option>
+        <option value="failed">Attempted but failed</option>
+        <option value="shallow">Shallow Cage</option>
+        <option value="deep">Deep Cage</option>
       </select>
 
-      <label class="form-label">Did they continue shooting for endgame?</label>
-      <select class="form-input">
-        <option value="">Select an option...</option>
+      <label class="form-label">Climb Time (seconds, approximate)</label>
+      <input class="form-input" type="number" id="climb_time" placeholder="e.g. 8" min="0">
+
+      <label class="form-label">Park (stayed in barge zone)?</label>
+      <select class="form-input" id="parked">
+        <option value="">Select...</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
 
-    <hr class="section-divider">
+      <p class="section-header">Notes</p>
+      <hr class="section-divider">
 
-      <label class="form-label">Were there any issues that affected their scoring?</label>
-      <input class="form-input" type="text" id="scouter_name" placeholder="If yes, please explain">
-
-      <label class="form-label">Did they spend a lot of times lining up?</label>
-      <select class="form-input">
-        <option value="">Select an option...</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+      <label class="form-label">Penalties / Fouls</label>
+      <select class="form-input" id="penalties">
+        <option value="">Select...</option>
+        <option value="none">None</option>
+        <option value="minor">Minor foul(s)</option>
+        <option value="major">Major foul(s)</option>
+        <option value="disabled">Robot disabled</option>
       </select>
 
-      <label class="form-label">Did they contribute to a lot of fouls or penalties?</label>
-      <select class="form-input">
-        <option value="">Select an option...</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+      <label class="form-label">Overall Robot Rating</label>
+      <select class="form-input" id="rating">
+        <option value="">Select...</option>
+        <option value="1">1 – Poor</option>
+        <option value="2">2 – Below Average</option>
+        <option value="3">3 – Average</option>
+        <option value="4">4 – Good</option>
+        <option value="5">5 – Excellent</option>
       </select>
 
-      <label class="form-label">How accurate was their shooting on a scale from 1 to 5?</label>
-       <select class="form-input">
-        <option value="">Select an option...</option>
-        <option value="yes">1</option>
-        <option value="no">2</option>
-        <option value="yes">3</option>
-        <option value="no">4</option>
-        <option value="yes">5</option>
-      </select>
-
-      <label class="form-label">How good was their defense on a scale from 1 to 5?</label>
-       <select class="form-input">
-        <option value="">Select an option...</option>
-        <option value="yes">1</option>
-        <option value="no">2</option>
-        <option value="yes">3</option>
-        <option value="no">4</option>
-        <option value="yes">5</option>
-      </select>
-
-      <label class="form-label">Match Notes</label>
-      <input class="form-input" type="text" id="scouter_name" placeholder="Anything you noticed about how they played">
+      <label class="form-label">Additional Notes</label>
+      <textarea class="form-textarea" id="notes" placeholder="Observations, strategy, notable moments..."></textarea>
 
       <button class="form-submit" type="submit" id="submitBtn">Submit</button>
     </form>
   </div>
-      
-      <script type="module">
+
+  <div class="toast" id="toast">✅ Match data saved!</div>
+  <footer>Developed by Catie | Team 1991</footer>
+
+  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
@@ -330,7 +236,26 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // Team dropdown
+    window.setAlliance = function(color) {
+      document.getElementById('alliance').value = color;
+      document.getElementById('btn_red').classList.toggle('active', color === 'red');
+      document.getElementById('btn_blue').classList.toggle('active', color === 'blue');
+    };
+
+    window.increment = function(id) {
+      const el = document.getElementById(id);
+      const val = parseInt(el.value) + 1;
+      el.value = val;
+      document.getElementById(id + '_display').textContent = val;
+    };
+
+    window.decrement = function(id) {
+      const el = document.getElementById(id);
+      const val = Math.max(0, parseInt(el.value) - 1);
+      el.value = val;
+      document.getElementById(id + '_display').textContent = val;
+    };
+
     let teamsData = {};
     fetch('teams.json')
       .then(res => res.json())
@@ -355,51 +280,69 @@
       }
     });
 
-    // Submit form to Firebase
-    document.getElementById('pitForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
+    const COUNTER_IDS = [
+      'auto_coral_l1','auto_coral_l2','auto_coral_l3','auto_coral_l4',
+      'auto_algae_net','auto_algae_processor',
+      'tele_coral_l1','tele_coral_l2','tele_coral_l3','tele_coral_l4',
+      'tele_algae_net','tele_algae_processor'
+    ];
 
+    document.getElementById('matchForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.disabled = true;
       submitBtn.textContent = 'Submitting...';
-
-      const driveMotors = [...document.querySelectorAll('input[name="drive_motor"]:checked')].map(el => el.value);
-      const steerMotors = [...document.querySelectorAll('input[name="steer_motor"]:checked')].map(el => el.value);
 
       const data = {
         timestamp: new Date().toISOString(),
         event: document.getElementById('event').value,
         team: document.getElementById('team').value,
+        match_number: document.getElementById('match_number').value,
+        alliance: document.getElementById('alliance').value,
+        robot_position: document.getElementById('robot_position').value,
         scouter_name: document.getElementById('scouter_name').value,
         scouter_team: document.getElementById('scouter_team').value,
-        drive_train: document.getElementById('drive_train').value,
-        swerve_type: document.getElementById('swerve_type').value,
-        drive_motors: driveMotors,
-        steer_motors: steerMotors,
-        robot_width: document.getElementById('robot_width').value,
-        robot_length: document.getElementById('robot_length').value,
-        robot_weight: document.getElementById('robot_weight').value,
-        auto_count: document.getElementById('auto_count').value,
-        auto_description: document.getElementById('auto_description').value,
         auto_start: document.getElementById('auto_start').value,
-        auto_climb: document.getElementById('auto_climb').value,
-        fuel_capacity: document.getElementById('fuel_capacity').value,
-        bump: document.getElementById('bump').value,
-        trench: document.getElementById('trench').value,
-        avg_fuel: document.getElementById('avg_fuel').value,
-        automation: document.getElementById('automation').value,
-        automation_description: document.getElementById('automation_description').value,
+        auto_moved: document.getElementById('auto_moved').value,
+        auto_coral_l1: parseInt(document.getElementById('auto_coral_l1').value),
+        auto_coral_l2: parseInt(document.getElementById('auto_coral_l2').value),
+        auto_coral_l3: parseInt(document.getElementById('auto_coral_l3').value),
+        auto_coral_l4: parseInt(document.getElementById('auto_coral_l4').value),
+        auto_algae_net: parseInt(document.getElementById('auto_algae_net').value),
+        auto_algae_processor: parseInt(document.getElementById('auto_algae_processor').value),
+        tele_coral_l1: parseInt(document.getElementById('tele_coral_l1').value),
+        tele_coral_l2: parseInt(document.getElementById('tele_coral_l2').value),
+        tele_coral_l3: parseInt(document.getElementById('tele_coral_l3').value),
+        tele_coral_l4: parseInt(document.getElementById('tele_coral_l4').value),
+        tele_algae_net: parseInt(document.getElementById('tele_algae_net').value),
+        tele_algae_processor: parseInt(document.getElementById('tele_algae_processor').value),
+        defense: document.getElementById('defense').value,
+        defended: document.getElementById('defended').value,
+        climb_result: document.getElementById('climb_result').value,
+        climb_time: document.getElementById('climb_time').value,
+        parked: document.getElementById('parked').value,
+        penalties: document.getElementById('penalties').value,
+        rating: document.getElementById('rating').value,
         notes: document.getElementById('notes').value,
       };
 
       try {
-        await addDoc(collection(db, "pit_scouting"), data);
+        await addDoc(collection(db, "match_scouting"), data);
         const toast = document.getElementById('toast');
         toast.style.display = 'block';
         setTimeout(() => { toast.style.display = 'none'; }, 3000);
-        document.getElementById('pitForm').reset();
+
+        document.getElementById('matchForm').reset();
         document.getElementById('team').innerHTML = '<option value="">Select an event first...</option>';
         document.getElementById('team').disabled = true;
+        document.getElementById('alliance').value = '';
+        document.getElementById('btn_red').classList.remove('active');
+        document.getElementById('btn_blue').classList.remove('active');
+
+        COUNTER_IDS.forEach(id => {
+          document.getElementById(id).value = '0';
+          document.getElementById(id + '_display').textContent = '0';
+        });
       } catch (err) {
         alert('Error saving submission: ' + err.message);
       }
@@ -408,10 +351,5 @@
       submitBtn.textContent = 'Submit';
     });
   </script>
-
 </body>
 </html>
-
-
-
-
