@@ -198,6 +198,24 @@
       
       <hr class="section-divider">
 
+       <label class="form-label">Where did they start?</label>
+      <select class="form-input">
+        <option value="">Select a option...</option>
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+      </select>
+
+      <label class="form-label">Did they climb during auto?</label>
+      <select class="form-input">
+        <option value="">Select an option...</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label class="form-label">Fuel scored during autonomous</label>
+      <input type="range" min="0" max="40" step="5">
+      
  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -295,3 +313,4 @@
 
 </body>
 </html>
+
